@@ -1,10 +1,30 @@
 const grid = document.querySelector('.grid');
+let cells;
 
 const resetBtn = document.querySelector('.reset');
 resetBtn.addEventListener('click', resetGrid);
 
 const gridLineBtn = document.querySelector('.toggleLines');
 gridLineBtn.addEventListener('click', toggleLines);
+
+const slider = document.querySelector('.slider')
+const dimensions = document.querySelector('.gridDimensions')
+
+
+slider.oninput = function() {
+    replaceGrid(slider.value);
+    dimensions.textContent = slider.value + " x " + slider.value;
+}
+
+
+function replaceGrid(dimension) {
+
+    while (grid.firstChild) {
+        grid.removeChild(grid.firstChild);
+    }
+
+    createGrid(dimension);
+}
 
 
 function createGrid (dimension){
@@ -29,23 +49,22 @@ function createGrid (dimension){
         grid.appendChild(rowDiv);
     }
 
+    cells = document.querySelectorAll('.gridCell');
+
+    cells.forEach ( cell => {
+        cell.addEventListener('mouseover', function() {
+            cell.style.backgroundColor = 'black';
+        })
+    });
 }
 
-createGrid(16);
-
-const cells = document.querySelectorAll('.gridCell');
-
-cells.forEach ( cell => {
-    cell.addEventListener('mouseover', function() {
-        cell.style.backgroundColor = 'black';
-    })
-});
 
 function resetGrid() {
     cells.forEach ( cell => {
         cell.style.backgroundColor = 'white';
     });
 }
+
 
 function toggleLines() {
     cells.forEach ( cell => {
@@ -57,3 +76,6 @@ function toggleLines() {
         }
     });
 }
+
+
+createGrid(slider.value);
