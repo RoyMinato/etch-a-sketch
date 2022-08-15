@@ -1,5 +1,6 @@
 const grid = document.querySelector('.grid');
 let cells;
+let mousedown = false;
 
 const resetBtn = document.querySelector('.reset');
 resetBtn.addEventListener('click', resetGrid);
@@ -54,8 +55,22 @@ function createGrid (dimension){
     cells = document.querySelectorAll('.gridCell');
 
     cells.forEach ( cell => {
-        cell.addEventListener('mouseover', function() {
+        cell.addEventListener('mousedown', function() {
             cell.style.backgroundColor = colorSelector.value;
+            mousedown = true;
+            
+            //use window so still works if mouse moved out of grid then mouseup event occurs
+            window.addEventListener('mouseup', function(){
+                mousedown = false;
+            });
+        })
+    });
+
+    cells.forEach ( cell => {
+        cell.addEventListener('mouseover', function() {
+            if(mousedown){
+                cell.style.backgroundColor = colorSelector.value;
+            }
         })
     });
 }
