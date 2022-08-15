@@ -10,6 +10,8 @@ gridLineBtn.addEventListener('click', toggleLines);
 const slider = document.querySelector('.slider')
 const dimensions = document.querySelector('.gridDimensions')
 
+const colorSelector = document.querySelector('.colorPicker')
+
 
 slider.oninput = function() {
     replaceGrid(slider.value);
@@ -53,7 +55,7 @@ function createGrid (dimension){
 
     cells.forEach ( cell => {
         cell.addEventListener('mouseover', function() {
-            cell.style.backgroundColor = 'black';
+            cell.style.backgroundColor = colorSelector.value;
         })
     });
 }

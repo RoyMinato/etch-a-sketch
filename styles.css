@@ -5,10 +5,15 @@
     font-family: "Noto Sans", sans-serif;
 }
 
+h1 {
+    font-family: Lato, sans-serif;
+    font-weight: 540;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    background-color: #89cff0;
+    background-color: #79c8ed;
 }
 
 .header {
@@ -42,6 +47,16 @@ body {
     justify-content: center;
 }
 
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(242, 234, 234);
+    padding: 30px 30px;
+    border: 1px solid black;
+    border-radius: 24px;
+}
+
 button {
     font-size: 35px;
     border-radius: 10px;
@@ -54,11 +69,24 @@ button {
 }
 
 .gridDimensions,
-.sliderTitle {
+.titles {
     font-size: 30px;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .gridDimensions {
     margin-bottom: 12px;
+}
+
+.colorPicker {
+    height: 160px;
+    width: 160px;
+    margin-bottom: 25px;
+}
+
+.panelTitle {
+    margin-bottom: 40px;
+    font-size: 35px;
+    font-weight: 600;
 }
