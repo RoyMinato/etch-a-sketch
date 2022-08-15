@@ -19,7 +19,7 @@ body {
 .header {
     display: flex;
     justify-content: center;
-    padding: 53px;
+    padding: 30px;
     font-size: 54px;
 }
 
@@ -36,8 +36,8 @@ body {
 .grid {
     display: flex;
     flex-direction: column;
-    width: 850px;
-    height: 850px;
+    width: 700px;
+    height: 700px;
     flex-wrap: wrap;
 }
 
